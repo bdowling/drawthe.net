@@ -12,31 +12,31 @@
 
     <link rel="icon"
       type="image/png"
-      href="./build/images/radial.png" />
+      href="images/radial.png" />
 
     <title>Decent looking diagrams for engineers</title>
 
-    <link rel="stylesheet" href="build/css/bootstrap.min.css">
-    <link rel="stylesheet" href="build/css/app.css">
-    <link rel="stylesheet" href="build/css/notes.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/notes.css">
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.1/es6-shim.min.js"</script>
-    <script type="text/javascript" src="build/js/js-yaml.min.js"></script>
-    <script type="text/javascript" src="build/js/d3.min.js"></script>
-    <script type="text/javascript" src="./build/js/showdown.js"></script>
-    <script type="text/javascript" src="./build/js/showdown-prettify.min.js"></script>
-    <script type="text/javascript" src="./build/js/prettify/run_prettify.js"></script>
+    <script type="text/javascript" src="js/js-yaml.min.js"></script>
+    <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/showdown.js"></script>
+    <script type="text/javascript" src="js/showdown-prettify.min.js"></script>
+    <script type="text/javascript" src="js/prettify/run_prettify.js"></script>
 
 
-    <script type="text/javascript" src="build/js/dld4e-connections.js"></script>
-    <script type="text/javascript" src="build/js/dld4e-draw.js"></script>
-    <script type="text/javascript" src="build/js/dld4e-gridlines.js"></script>
-    <script type="text/javascript" src="build/js/dld4e-groups.js"></script>
-    <script type="text/javascript" src="build/js/dld4e-icons.js"></script>
-    <script type="text/javascript" src="build/js/dld4e-title.js"></script>
-    <script type="text/javascript" src="build/js/dld4e-notes.js"></script>
-    <script type="text/javascript" src="build/js/dld4e-process.js"></script>
-    <script type="text/javascript" src="build/js/app.js"></script>
+    <script type="text/javascript" src="js/dld4e-connections.js"></script>
+    <script type="text/javascript" src="js/dld4e-draw.js"></script>
+    <script type="text/javascript" src="js/dld4e-gridlines.js"></script>
+    <script type="text/javascript" src="js/dld4e-groups.js"></script>
+    <script type="text/javascript" src="js/dld4e-icons.js"></script>
+    <script type="text/javascript" src="js/dld4e-title.js"></script>
+    <script type="text/javascript" src="js/dld4e-notes.js"></script>
+    <script type="text/javascript" src="js/dld4e-process.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 
 <style>
 html, body {
@@ -78,9 +78,9 @@ html, body {
 
   var xhr = new XMLHttpRequest();
   if (getQueryVariable('doc')) {
-    xhr.open('GET', './examples/' + getQueryVariable('doc') + '.yaml', true);
+    xhr.open('GET', 'examples/' + getQueryVariable('doc') + '.yaml', true);
   } else if (getQueryVariable('key')){
-    xhr.open('GET', 'https://syg5y0qnyf.execute-api.us-west-2.amazonaws.com/dev/' + getQueryVariable('key'), true);
+//    ZZZxhr.open('GET', 'https://syg5y0qnyf.execute-api.us-west-2.amazonaws.com/dev/' + getQueryVariable('key'), true);
   } else {
     throw new Error("my error message");
   }
