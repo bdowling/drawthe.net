@@ -1,3 +1,6 @@
+import * as d3 from 'd3';
+import showdown from 'showdown';
+
 export function drawConnections(svg, diagram, connections, icons, notes) {
     var connectionLabelFontSize = Math.min(diagram.xBand.bandwidth()/8,diagram.yBand.bandwidth()/8)
     connections.forEach(function(connection,index) {

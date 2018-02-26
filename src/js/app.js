@@ -1,3 +1,5 @@
+import jsyaml from 'js-yaml';
+
 function doc_keyUp(e) {
     if ((e.ctrlKey && e.keyCode == 13) || (e.keyCode == 27)){
         e.preventDefault()
@@ -288,4 +290,3 @@ function mainController($scope, $http, $sce, $log, $window, $location, $timeout,
   }
 
 };
-

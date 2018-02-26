@@ -1,3 +1,7 @@
+import jsyaml from 'js-yaml';
+import 'showdown-prettify';
+import 'code-prettify/src/run_prettify';
+
 import {draw, drawConnections, drawGroups, drawGridLines, drawIcons, drawTitle, drawNotes } from './js/dld4e-all';
 /*
 import { drawConnections } from './js/dld4e-connections';
@@ -9,13 +13,6 @@ import { drawTitle } from './js/dld4e-title';
 import { drawNotes } from './js/dld4e-notes';
 import {  processEntities } from './js/dld4e-process';
 */
-
-import 'node_modules/d3/build/d3.min.js';
-import 'node_modules/js-yaml/dist/js-yaml.min.js';
-
-import 'node_modules/angular/angular.min.js';
-import 'node_modules/angular-animate/angular-animate.min.js';
-
 
 var fonts = [];
 
