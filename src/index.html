@@ -47,7 +47,7 @@
                 <button id="link" class="btn btn-black btn-sm" ng-click="link()">
                    <span class="fa fa-clipboard" aria-hidden="true" ></span><span ng-bind="linkText">Link</span>
                 </button>
-                <form> <!-- form-inline causes different layout in latest bootstrap? class="form-inline"> -->
+                <form class="form-inline"> <!-- XXX form-inline causes different layout in latest bootstrap? class="form-inline"> -->
                   <div class="input-group">
                     <input type="text" size="35" class="form-control input-sm" ng-model="gistURL" placeholder="Load from Github Gist">
                     <span class="input-group-btn">
@@ -69,33 +69,33 @@
           </div>
         </div>
         <div class="col-sm-6" id="rightSide">
-          <div class="row">  <!-- Something is broken in the CSS, this causes the
-		      drawring to be wrong sized: pull-right -->
+          <div class="row pull-right">  <!-- XXX pull-right breaks something in later versions, this causes the
+		      drawring to be wrong sized -->
             <button id="saveimage" type="button" class="btn btn-black btn-sm" ng-click="saveImage()" uib-tooltip="Save SVG as Image" tooltip-placement="bottom" tooltip-append-to-body="true">
               <span class="glyphicon glyphicon glyphicon-floppy-save" aria-hidden="true" ></span> PNG
             </button>
             <div class="btn-group" uib-dropdown is-open="status.isopen1" ng-show="shown">
-              <button id="examples" type="button" class="btn btn-black btn-sm dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled">
-                Examples
+              <button id="examples" type="button" class="btn btn-black btn-sm" uib-dropdown-toggle ng-disabled="disabled">
+                Examples <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="examples">
-                <li class="dropdown-item" role="menuitem" ng-click="example('coffee.yaml')"><a href="javascript:void(0);">Coffee Colors</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('curves.yaml')"><a href="javascript:void(0);">Curves</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('groups.yaml')"><a href="javascript:void(0);">Groups</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('group connections.yaml')"><a href="javascript:void(0);">Group connections</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('labels.yaml')"><a href="javascript:void(0);">Labels</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('mouseover.yaml')"><a href="javascript:void(0);">Mouseover Metadata</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('notes.yaml')"><a href="javascript:void(0);">Notes</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('NTP.yaml')"><a href="javascript:void(0);">NTP</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('relative positions.yaml')"><a href="javascript:void(0);">Relative positions</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('sample.yaml')"><a href="javascript:void(0);">Sample</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('text locations.yaml')"><a href="javascript:void(0);">Text locations</a></li>
-                <li class="dropdown-item" role="menuitem" ng-click="example('urls.yaml')"><a href="javascript:void(0);">URLs for icons</a></li>
+                <li role="menuitem" ng-click="example('coffee.yaml')"><a href="javascript:void(0);">Coffee Colors</a></li>
+                <li role="menuitem" ng-click="example('curves.yaml')"><a href="javascript:void(0);">Curves</a></li>
+                <li role="menuitem" ng-click="example('groups.yaml')"><a href="javascript:void(0);">Groups</a></li>
+                <li role="menuitem" ng-click="example('group connections.yaml')"><a href="javascript:void(0);">Group connections</a></li>
+                <li role="menuitem" ng-click="example('labels.yaml')"><a href="javascript:void(0);">Labels</a></li>
+                <li role="menuitem" ng-click="example('mouseover.yaml')"><a href="javascript:void(0);">Mouseover Metadata</a></li>
+                <li role="menuitem" ng-click="example('notes.yaml')"><a href="javascript:void(0);">Notes</a></li>
+                <li role="menuitem" ng-click="example('NTP.yaml')"><a href="javascript:void(0);">NTP</a></li>
+                <li role="menuitem" ng-click="example('relative positions.yaml')"><a href="javascript:void(0);">Relative positions</a></li>
+                <li role="menuitem" ng-click="example('sample.yaml')"><a href="javascript:void(0);">Sample</a></li>
+                <li role="menuitem" ng-click="example('text locations.yaml')"><a href="javascript:void(0);">Text locations</a></li>
+                <li role="menuitem" ng-click="example('urls.yaml')"><a href="javascript:void(0);">URLs for icons</a></li>
               </ul>
             </div>
             <div class="btn-group" uib-dropdown is-open="status.isopen2" ng-show="shown">
-              <button id="icons" type="button" class="btn btn-black btn-sm dropdown-toggle" uib-dropdown-toggle ng-disabled="disabled">
-                Icons
+              <button id="icons" type="button" class="btn btn-black btn-sm" uib-dropdown-toggle ng-disabled="disabled">
+                Icons <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="icons">
                 <li role="menuitem" ng-click="drawIconFamily('aws-native')"><a href="javascript:void(0);">aws</a></li>

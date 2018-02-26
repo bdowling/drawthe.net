@@ -57,7 +57,7 @@ module.exports = {
       // {from: 'node_modules/angular-bootstrap/ui-bootstrap-tpls.min.js', to: 'web/js/ui-bootstrap-tpls.min.js'},
       // {from: 'node_modules/showdown/dist/showdown.min.js', to: 'web/js/showdown.js'},
       // {from: 'node_modules/showdown-prettify/dist/showdown-prettify.min.js', to: 'web/js/showdown-prettify.min.js'},
-      {from: 'node_modules/bootstrap-css-only/css/bootstrap.min.css', to: 'web/css/bootstrap.min.css'},
+      {from: 'node_modules/bootstrap-css-only/css/bootstrap.css', to: 'web/css/bootstrap.min.css'},
       {from: 'node_modules/font-awesome/css/font-awesome.min.css', to: 'web/css/font-awesome.min.css'},
 
       // {context: 'node_modules/code-prettify/loader/', from: '*', to: 'web/js/prettify/'},

@@ -24,8 +24,8 @@
   "dependencies": {
     "angular": "^1.6.9",
     "angular-animate": "^1.6.9",
-    "angular-bootstrap": "^0.12.2",
     "angular-ui-ace": "^0.2.3",
+    "angular1-ui-bootstrap4": "^2.4.22",
     "awesome-typescript-loader": "^3.4.1",
     "bootstrap-css-only": "^4.0.0",
     "brace": "^0.11.1",

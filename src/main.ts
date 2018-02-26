@@ -69,7 +69,9 @@ function copyToClipboard(text) {
 
 /* -------- Moved from index.html -------- */
 
-angular
+//import uibootstrap from 'angular1-ui-bootstrap4';
+
+ angular
     .module("dld4e", ['ui.bootstrap', 'ui.ace'])
     .controller("mainController", mainController)
 
