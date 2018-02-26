@@ -1,4 +1,4 @@
-var drawTitle = function (svg, drawing, title) {
+export default function drawTitle(svg, drawing, title) {
   if (title.heightPercentage > 0) {
     // title bar
     axisPadding = 20
@@ -134,4 +134,4 @@ var drawTitle = function (svg, drawing, title) {
       .style('font-size', title.height * .25 + 'px')
       .text(title.version)
   }
-}
+};

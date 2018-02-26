@@ -1,4 +1,4 @@
-fonts['azure-cloud'] = {
+export default {
   "AccountsMicrosoftaccount": "\uf101",
   "AccountsWorkAccount": "\uf102",
   "ActiveDirectory": "\uf103",
@@ -122,3 +122,4 @@ fonts['azure-cloud'] = {
   "WebAppWebJobs": "\uf179",
   "webhooks": "\uf17a"
 };
+

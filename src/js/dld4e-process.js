@@ -1,4 +1,4 @@
-var processEntities = function (svg, diagram, icons) {
+export default function processEntities(svg, diagram, icons) {
 
   // set some defaults, even though these won't be used for iconss we'll set them anyway
   var defaults = {

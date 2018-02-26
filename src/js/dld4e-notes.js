@@ -1,4 +1,4 @@
-var drawNotes = function (svg, diagram, notes) {
+export default function drawNotes(svg, diagram, notes) {
 
   var converter = new showdown.Converter({extensions: ['prettify']});
   converter.setOption('prefixHeaderId', 'notes-');
@@ -65,4 +65,4 @@ var drawNotes = function (svg, diagram, notes) {
     .style('justify-content', function(d) { return d.value.justifyContent || yAlign[d.value.yAlign].justifyContent })
     .style('text-align', function(d) { return d.value.textAlign || xAlign[d.value.xAlign].textAlign })
     .html( function (d) { return converter.makeHtml(d.value.text || "Missing text in note") })
-}
+};

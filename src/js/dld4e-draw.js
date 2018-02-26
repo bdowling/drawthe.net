@@ -1,4 +1,4 @@
-function draw(doc) {
+export function draw(doc) {
   // set the drawing defaults
   var drawingDefaults = {
     fill: "orange",
@@ -33,34 +33,36 @@ function draw(doc) {
   var icons = doc.icons || [];
 
   // merge the doc properties into the defaults
-  var diagram = Object.assign(drawingDefaults, doc.diagram || {})
-  var title = Object.assign(titleDefaults, doc.title || {})
+  var diagram = Object.assign(drawingDefaults, doc.diagram || {});
+  var title = Object.assign(titleDefaults, doc.title || {});
 
   // set the background color of the whole page
-  document.body.style.background = diagram.fill
+  document.body.style.background = diagram.fill;
 
   // find a good fit for the diagram
-  var parentBox = d3.select("#svg").node().getBoundingClientRect()
-  var ratios = diagram.aspectRatio.split(':')
+  var parentBox = d3.select("#svg").node().getBoundingClientRect();
+  var ratios = diagram.aspectRatio.split(':');
 
   // set the desired h/w
-  var availbleHeight = parentBox.height - diagram.margins.top - diagram.margins.bottom
-  var availbleWidth = parentBox.width - diagram.margins.left - diagram.margins.right
+  var availbleHeight = parentBox.height - diagram.margins.top - diagram.margins.bottom;
+  var availbleWidth = parentBox.width - diagram.margins.left - diagram.margins.right;
+  var svgWidth;
+  var svgHeight;
 
   if (availbleHeight < availbleWidth) {
-    svgHeight = availbleHeight
-    svgWidth = svgHeight/ratios[1] * ratios[0]
+    svgHeight = availbleHeight;
+    svgWidth = svgHeight/ratios[1] * ratios[0];
   } else if (availbleWidth < availbleHeight) {
-    svgWidth = availbleWidth
-    svgHeight = svgWidth/ratios[0] * ratios[1]
+    svgWidth = availbleWidth;
+    svgHeight = svgWidth/ratios[0] * ratios[1];
   } else {
-    svgWidth = availbleWidth
-    svgHeight = availbleHeight
+    svgWidth = availbleWidth;
+    svgHeight = availbleHeight;
   }
   // downsize if outside the bounds
   if (svgHeight > availbleHeight) {
-    svgHeight = availbleHeight
-    svgWidth = svgHeight/ratios[1] * ratios[0]
+    svgHeight = availbleHeight;
+    svgWidth = svgHeight/ratios[1] * ratios[0];
   }
   if (svgWidth > availbleWidth) {
     svgWidth = availbleWidth
@@ -121,4 +123,4 @@ function draw(doc) {
     .each( function(d) { d3.select(this).moveToFront(); } )
   svg.selectAll('.iconLabel')
     .each( function(d) { d3.select(this).moveToFront(); } )
-};
+}

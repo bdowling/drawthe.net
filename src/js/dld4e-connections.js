@@ -1,4 +1,4 @@
-var drawConnections = function (svg, diagram, connections, icons, notes) {
+export default function drawConnections(svg, diagram, connections, icons, notes) {
     var connectionLabelFontSize = Math.min(diagram.xBand.bandwidth()/8,diagram.yBand.bandwidth()/8)
     connections.forEach(function(connection,index) {
       var endpoints = connection.endpoints.map( function(device) { return device.split(':')[0]})
@@ -102,4 +102,4 @@ var drawConnections = function (svg, diagram, connections, icons, notes) {
             .attr("xlink:href", "#" + pathName)
             .text(secondLabel);
     });
-}
+};

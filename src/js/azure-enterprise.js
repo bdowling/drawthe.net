@@ -1,4 +1,4 @@
-fonts['azure-enterprise'] = {
+export default { 
   "ActiveDirectoryFederationServicesProxy": "\uf101",
   "ADFS": "\uf102",
   "AndroidPhone": "\uf103",

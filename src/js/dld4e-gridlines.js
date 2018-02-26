@@ -1,4 +1,4 @@
-var drawGridLines = function (svg, drawing) {
+export default function drawGridLines(svg, drawing) {
   if (drawing.gridLines) {
     function make_x_gridlines() {
       return d3.axisBottom(drawing.xBand)
@@ -35,4 +35,4 @@ var drawGridLines = function (svg, drawing) {
       .attr("class", "axisNone")
       .call(d3.axisLeft(drawing.yBand));
   }
-}
+};

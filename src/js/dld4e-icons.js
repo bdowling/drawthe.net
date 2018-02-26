@@ -1,4 +1,4 @@
-var drawIcons = function (svg, diagram, icons, iconTextRatio) {
+export function drawIcons(svg, diagram, icons, iconTextRatio) {
   var deviceCellsAll = svg.selectAll("cells")
     .data(d3.entries(icons))
     .enter()
@@ -177,4 +177,4 @@ var drawIcons = function (svg, diagram, icons, iconTextRatio) {
       svg.selectAll(".mouseOver")
         .remove()
     }
-}
+};

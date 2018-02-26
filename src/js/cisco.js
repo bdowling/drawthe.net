@@ -1,4 +1,4 @@
-fonts['cisco'] = {
+export default {
   "10700": "\uf102",
   "15200": "\uf104",
   "100basethub": "\uf101",
