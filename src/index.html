@@ -14,10 +14,8 @@
 
     <title>Decent looking diagrams for engineers</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/notes.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <script type="text/javascript" src="vendor.bundle.js"></script>
 
@@ -28,102 +26,104 @@
 
 </head>
 <body ng-app="dld4e" ng-controller="mainController">
-      <uib-alert class="col-sm-6 col-sm-offset-3" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
-        <span ng-bind-html="alert.msg"></span>
-      </uib-alert>
-      <div class="row">
-        <div class="col-sm-6" id="leftSide">
-          <div class="row no-gutters">
-            <div class="col-sm-11 container-fluid">
-                <button id="save" class="btn btn-black btn-sm" ng-click="save()">
-                    <span ng-class="saveIcon" aria-hidden="true" ></span> <span ng-bind="state"></span>
-                </button>
-                <button id="fork" class="btn btn-black btn-sm" ng-click="fork()">
-                   <span class="fa fa-code-fork" aria-hidden="true" ></span> Fork
-                </button>
-                <button id="download" class="btn btn-black btn-sm" ng-click="saveFile()">
-                   <span class="glyphicon glyphicon-floppy-save" aria-hidden="true" ></span> Download
-                </button>
-                <button id="link" class="btn btn-black btn-sm" ng-click="link()">
-                   <span class="fa fa-clipboard" aria-hidden="true" ></span><span ng-bind="linkText">Link</span>
-                </button>
-                <form class="form-inline"> <!-- XXX form-inline causes different layout in latest bootstrap? class="form-inline"> -->
-                  <div class="input-group">
-                    <input type="text" size="35" class="form-control input-sm" ng-model="gistURL" placeholder="Load from Github Gist">
-                    <span class="input-group-btn">
-                      <button class="btn btn-black btn-sm" type="submit" ng-click="gist()">
-                        <span class="fa fa-cloud-download"></span>
-                      </button>
-                    </span>
-                  </div>
-                </form>
-            </div>
-            <div class="col-sm-1">
-              <button id="draw" class="btn btn-black btn-sm pull-right" ng-click="drawClick(value)" uib-tooltip="hint: press ctrl-enter to refresh the drawing" tooltip-placement="bottom" tooltip-append-to-body="true">
-                 <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true" ></span> Draw
-              </button>
-            </div>
+  <uib-alert class="col-6 offset-3" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+    <span ng-bind-html="alert.msg"></span>
+  </uib-alert>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6" id="leftSide">
+        <div class="row no-gutters">
+          <div class="col-11 container-fluid">
+            <button id="save" class="btn btn-black btn-sm" ng-click="save()">
+              <span ng-class="saveIcon" aria-hidden="true" ></span> <span ng-bind="state"></span>
+            </button>
+            <button id="fork" class="btn btn-black btn-sm" ng-click="fork()">
+              <span class="fa fa-code-fork" aria-hidden="true" ></span> Fork
+            </button>
+            <button id="download" class="btn btn-black btn-sm" ng-click="saveFile()">
+              <span class="glyphicon glyphicon-floppy-save" aria-hidden="true" ></span> Download
+            </button>
+            <button id="link" class="btn btn-black btn-sm" ng-click="link()">
+              <span class="fa fa-clipboard" aria-hidden="true" ></span><span ng-bind="linkText">Link</span>
+            </button>
+            <form class="form-inlineZZ"> <!-- XXX form-inline causes different layout in latest bootstrap? class="form-inline"> -->
+              <div class="input-group">
+                <input type="text" size="35" class="form-control input-sm" ng-model="gistURL" placeholder="Load from Github Gist">
+                <span class="input-group-btn">
+                  <button class="btn btn-black btn-sm" type="submit" ng-click="gist()">
+                    <span class="fa fa-cloud-download"></span>
+                  </button>
+                </span>
+              </div>
+            </form>
           </div>
-          <div class="row">
-            <div ui-ace="aceyamlOptions" ng-model="acedata"></div>
+          <div class="col-1">
+            <button id="draw" class="btn btn-black btn-sm pull-right" ng-click="drawClick(value)" uib-tooltip="hint: press ctrl-enter to refresh the drawing" tooltip-placement="bottom" tooltip-append-to-body="true">
+              <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true" ></span> Draw
+            </button>
           </div>
         </div>
-        <div class="col-sm-6" id="rightSide">
-          <div class="row pull-right">  <!-- XXX pull-right breaks something in later versions, this causes the
-		      drawring to be wrong sized -->
-            <button id="saveimage" type="button" class="btn btn-black btn-sm" ng-click="saveImage()" uib-tooltip="Save SVG as Image" tooltip-placement="bottom" tooltip-append-to-body="true">
-              <span class="glyphicon glyphicon glyphicon-floppy-save" aria-hidden="true" ></span> PNG
+        <div class="row">
+          <div ui-ace="aceyamlOptions" ng-model="acedata"></div>
+        </div>
+      </div>
+      <div class="col-6" id="rightSide">
+        <div class="row pull-rightZZ">  <!-- XXX pull-right breaks something in later versions, this causes the
+          drawring to be wrong sized -->
+          <button id="saveimage" type="button" class="btn btn-black btn-sm" ng-click="saveImage()" uib-tooltip="Save SVG as Image" tooltip-placement="bottom" tooltip-append-to-body="true">
+            <span class="glyphicon glyphicon glyphicon-floppy-save" aria-hidden="true" ></span> PNG
+          </button>
+          <div class="btn-group" uib-dropdown is-open="status.isopen1">
+            <button id="examples" type="button" class="btn btn-black btn-sm" uib-dropdown-toggle ng-disabled="disabled">
+              Examples
             </button>
-            <div class="btn-group" uib-dropdown is-open="status.isopen1" ng-show="shown">
-              <button id="examples" type="button" class="btn btn-black btn-sm" uib-dropdown-toggle ng-disabled="disabled">
-                Examples <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="examples">
-                <li role="menuitem" ng-click="example('coffee.yaml')"><a href="javascript:void(0);">Coffee Colors</a></li>
-                <li role="menuitem" ng-click="example('curves.yaml')"><a href="javascript:void(0);">Curves</a></li>
-                <li role="menuitem" ng-click="example('groups.yaml')"><a href="javascript:void(0);">Groups</a></li>
-                <li role="menuitem" ng-click="example('group connections.yaml')"><a href="javascript:void(0);">Group connections</a></li>
-                <li role="menuitem" ng-click="example('labels.yaml')"><a href="javascript:void(0);">Labels</a></li>
-                <li role="menuitem" ng-click="example('mouseover.yaml')"><a href="javascript:void(0);">Mouseover Metadata</a></li>
-                <li role="menuitem" ng-click="example('notes.yaml')"><a href="javascript:void(0);">Notes</a></li>
-                <li role="menuitem" ng-click="example('NTP.yaml')"><a href="javascript:void(0);">NTP</a></li>
-                <li role="menuitem" ng-click="example('relative positions.yaml')"><a href="javascript:void(0);">Relative positions</a></li>
-                <li role="menuitem" ng-click="example('sample.yaml')"><a href="javascript:void(0);">Sample</a></li>
-                <li role="menuitem" ng-click="example('text locations.yaml')"><a href="javascript:void(0);">Text locations</a></li>
-                <li role="menuitem" ng-click="example('urls.yaml')"><a href="javascript:void(0);">URLs for icons</a></li>
-              </ul>
+            <div class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="examples">
+              <a class="dropdown-item" ng-click="example('coffee.yaml')" href="#">Coffee Colors</a>
+              <a class="dropdown-item" ng-click="example('curves.yaml')" href="#">Curves</a>
+              <a class="dropdown-item" ng-click="example('groups.yaml')" href="#">Groups</a>
+              <a class="dropdown-item" ng-click="example('group connections.yaml')" href="#">Group connections</a>
+              <a class="dropdown-item" ng-click="example('labels.yaml')" href="#">Labels</a>
+              <a class="dropdown-item" ng-click="example('mouseover.yaml')" href="#">Mouseover Metadata</a>
+              <a class="dropdown-item" ng-click="example('notes.yaml')" href="#">Notes</a>
+              <a class="dropdown-item" ng-click="example('NTP.yaml')" href="#">NTP</a>
+              <a class="dropdown-item" ng-click="example('relative positions.yaml')" href="#">Relative positions</a>
+              <a class="dropdown-item" ng-click="example('sample.yaml')" href="#">Sample</a>
+              <a class="dropdown-item" ng-click="example('text locations.yaml')" href="#">Text locations</a>
+              <a class="dropdown-item" ng-click="example('urls.yaml')" href="#">URLs for icons</a>
             </div>
-            <div class="btn-group" uib-dropdown is-open="status.isopen2" ng-show="shown">
-              <button id="icons" type="button" class="btn btn-black btn-sm" uib-dropdown-toggle ng-disabled="disabled">
-                Icons <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="icons">
-                <li role="menuitem" ng-click="drawIconFamily('aws-native')"><a href="javascript:void(0);">aws</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('aws-filled')"><a href="javascript:void(0);">aws (iconFill)</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('aws-stroke')"><a href="javascript:void(0);">aws (iconStroke)</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('cisco-native')"><a href="javascript:void(0);">cisco</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('cisco-filled')"><a href="javascript:void(0);">cisco (iconFill)</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('cisco-stroke')"><a href="javascript:void(0);">cisco (iconStroke)</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('azureEnterprise-native')"><a href="javascript:void(0);">azureEnterprise</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('azureEnterprise-filled')"><a href="javascript:void(0);">azureEnterprise (iconFill)</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('azureEnterprise-stroke')"><a href="javascript:void(0);">azureEnterprise (iconStroke)</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('azureCloud-native')"><a href="javascript:void(0);">azureCloud</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('azureCloud-filled')"><a href="javascript:void(0);">azureCloud (iconFill)</a></li>
-                <li role="menuitem" ng-click="drawIconFamily('azureCloud-stroke')"><a href="javascript:void(0);">azureCloud (iconStroke)</a></li>
-              </ul>
-            </div>
-            <a href="http://github.com/cidrblock/network_diagram" target="_blank" class="btn btn-black btn-sm">
-              <span class="fa fa-github"></span> Github
-            </a>
-            <button id="fullScreen" class="btn btn-black btn-sm" ng-click="fullScreen()">
-               <span class="fa fa-pencil-square-o" aria-hidden="true"></span><span ng-bind="mode"></span>
+          </div>
+          <div class="btn-group" uib-dropdown is-open="status.isopen2">
+            <button id="icons" type="button" class="btn btn-black btn-sm" uib-dropdown-toggle ng-disabled="disabled">
+              Icons
             </button>
+            <div class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="icons">
+              <a class="dropdown-item" ng-click="drawIconFamily('aws-native')" href="#">aws</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('aws-filled')" href="#">aws (iconFill)</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('aws-stroke')" href="#">aws (iconStroke)</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('cisco-native')" href="#">cisco</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('cisco-filled')" href="#">cisco (iconFill)</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('cisco-stroke')" href="#">cisco (iconStroke)</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('azureEnterprise-native')" href="#">azureEnterprise</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('azureEnterprise-filled')" href="#">azureEnterprise (iconFill)</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('azureEnterprise-stroke')" href="#">azureEnterprise (iconStroke)</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('azureCloud-native')" href="#">azureCloud</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('azureCloud-filled')" href="#">azureCloud (iconFill)</a>
+              <a class="dropdown-item" ng-click="drawIconFamily('azureCloud-stroke')" href="#">azureCloud (iconStroke)</a>
+            </div>
           </div>
-          <div class="row">
-            <div class="drawing" id="svg"></div>
-          </div>
+          <a href="http://github.com/cidrblock/network_diagram" target="_blank" class="btn btn-black btn-sm">
+            <span class="fa fa-github"></span> Github
+          </a>
+          <button id="fullScreen" class="btn btn-black btn-sm" ng-click="fullScreen()">
+            <span class="fa fa-pencil-square-o" aria-hidden="true"></span><span ng-bind="mode"></span>
+          </button>
+        </div>
+        <div class="row" style="border: 1px solid red;">
+          <div class="drawing" id="svg"></div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 </body>
 </html>

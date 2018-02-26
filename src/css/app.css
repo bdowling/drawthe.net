@@ -116,7 +116,7 @@ fieldset[disabled] .btn-black.active {
 .metadata table {
   color: white;
   background: rgba(0, 0, 0, 0.8);
-  border: .5vh solid rgba(0,0,0,0.0)}
+  border: .5vh solid rgba(0,0,0,0.0);
 }
 .metadata td {
   vertical-align: middle;

@@ -1,3 +1,7 @@
+
+require('./css/app.css');
+require('./css/notes.css');
+
 import jsyaml from 'js-yaml';
 import 'showdown-prettify';
 import 'code-prettify/src/run_prettify';
@@ -68,11 +72,12 @@ function copyToClipboard(text) {
 }
 
 /* -------- Moved from index.html -------- */
-
-//import uibootstrap from 'angular1-ui-bootstrap4';
+import dropdown from 'ui-bootstrap4/src/dropdown';
+import alert from 'ui-bootstrap4/src/alert';
+import tooltip from 'ui-bootstrap4/src/tooltip';
 
  angular
-    .module("dld4e", ['ui.bootstrap', 'ui.ace'])
+    .module("dld4e", ['ui.bootstrap', dropdown, alert, tooltip, 'ui.ace'])
     .controller("mainController", mainController)
 
 mainController.$inject = ["$scope", "$http", "$sce", "$log", "$window", "$location", "$timeout", "$animate"];
